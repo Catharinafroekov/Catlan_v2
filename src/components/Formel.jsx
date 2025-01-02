@@ -94,7 +94,7 @@ const Formel = () => {
           type="submit"
           className="bg-darkblue text-white mt-5 rounded-12 w-300 h-30"
         >
-          Submit
+          Go To Payment
         </button>
       </form>
     </div>
