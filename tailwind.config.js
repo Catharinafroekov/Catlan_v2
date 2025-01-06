@@ -104,7 +104,7 @@ module.exports = {
           "20%, 50%": { opacity: "0" },
         },
         motion: {
-          "0%": { transform: "translateX(100%)" },
+          "0%": { transform: "translateX(50%)" },
           "100%": { transform: "translateX(-100%)" },
         },
       },

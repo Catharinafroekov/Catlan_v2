@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
@@ -20,13 +21,15 @@ const Footer = () => {
       </div>
 
       {/* Logo */}
-      <div className="flex justify-center items-center basis-1/3">
-        <img
-          className="xs:w-75 xs:h-75 xs:mt-10 md:w-150 md:h-150"
-          src="/img/logo.svg"
-          alt="logo ikon"
-        />
-      </div>
+      <Link href="/">
+        <div className="flex justify-center items-center basis-1/3">
+          <img
+            className="xs:w-75 xs:h-75 xs:mt-10 md:w-150 md:h-150"
+            src="/img/logo.svg"
+            alt="logo ikon"
+          />
+        </div>
+      </Link>
     </section>
   );
 };

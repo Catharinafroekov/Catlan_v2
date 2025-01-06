@@ -11,7 +11,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-hidden">
+      <Banner />
       <Nav />
 
       {/* <Timer /> */}
@@ -24,11 +25,10 @@ export default function Home() {
       <Link href="/ticket">
         <StandardButton label="Buy your ticket here" />
       </Link>
-      <Banner />
       <Arrow />
       <LineupBands />
       <Link href="/lineup">
-        <StandardButton label="Read more here" />
+        <StandardButton label="See the full line up here" />
       </Link>
       <Footer />
     </div>
