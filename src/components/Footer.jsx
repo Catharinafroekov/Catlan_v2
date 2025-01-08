@@ -1,35 +1,39 @@
-import Link from "next/link";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <section className="xs:h-250 lg:h-300 flex justify-evenly items-center p-10 mt-5 bottom-0 w-full bg-white bg-opacity-30">
-      {/* Ikoner */}
-      <div className="flex flex-col items-center basis-1/3">
-        <FaInstagramSquare className="text-lilla xs:h-25 xs:w-25 lg:h-50 lg:w-50 mb-2" />
-        <FaFacebookSquare className="text-lilla xs:h-25 xs:w-25 lg:h-50 lg:w-50 mb-2" />
-        <FaTwitterSquare className="text-lilla xs:h-25 xs:w-25 lg:h-50 lg:w-50" />
-      </div>
-
-      {/* Tekst */}
-      <div className="text-center font-bold basis-1/3">
-        <p className="pb-5 pt-5 text-lilla lg:text-[20px]">Contact</p>
-        <p className="pb-5 text-lilla lg:text-[20px]">About Us</p>
-        <p className="pb-5 text-lilla lg:text-[20px]">Sponsor</p>
-      </div>
-
-      {/* Logo */}
-      <Link href="/">
-        <div className="flex justify-center items-center basis-1/3">
-          <img
-            className="xs:w-75 xs:h-75 xs:mt-10 md:w-150 md:h-150"
-            src="/img/logo.svg"
-            alt="logo ikon"
-          />
+    <section className="bg-white bg-opacity-30 w-full p-10 mt-5">
+      {/* Container til centrering */}
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
+        
+        {/* Ikoner */}
+        <div className="flex-1 flex flex-col items-center space-y-4">
+          <FaInstagramSquare className="text-lilla h-12 w-12" />
+          <FaFacebookSquare className="text-lilla h-12 w-12" />
+          <FaTwitterSquare className="text-lilla h-12 w-12" />
         </div>
-      </Link>
+
+        {/* Tekst */}
+        <div className="flex-1 text-center font-bold space-y-4">
+          <p className="text-lilla lg:text-[20px]">Contact</p>
+          <p className="text-lilla lg:text-[20px]">About Us</p>
+          <p className="text-lilla lg:text-[20px]">Sponsor</p>
+        </div>
+
+        {/* Logo */}
+        <div className="flex-1 flex justify-center items-center">
+          <Link href="/">
+            <img
+              className="w-20 h-20 md:w-40 md:h-40"
+              src="/img/logo.svg"
+              alt="logo ikon"
+            />
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };

@@ -10,10 +10,10 @@ export default function TicketS() {
   return (
     <div>
       <Nav></Nav>
-      <h1 className="text-4xl text-darkblue ml-20 mb-10">Vælg din billet</h1>
+      <h1 className="text-4xl text-darkblue ml-20 mb-10">Choose your ticket</h1>
       <Ticket />
       <h1 className="text-4xl text-darkblue ml-20 mb-5 mt-20">
-        Vælg camping område
+        Choose camping site
       </h1>
       <Camping />
       <Footer />

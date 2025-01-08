@@ -22,7 +22,9 @@ function MyTimer({ expiryTimestamp }) {
         <div><span>{hours}</span>
         <p>hours</p></div>
         <div><span>{minutes}</span>
-        <p>minutes</p></div> 
+        <p>min</p></div> 
+        <div><span>{seconds}</span>
+        <p>sec</p></div> 
       </div>
     </div>
   );

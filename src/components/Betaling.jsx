@@ -57,7 +57,7 @@ const Betaling = () => {
         <div>
           <label>
             <p className="pt-5">CVV</p>
-            <input className="bg-blue" type="text" />
+            <input className="bg-blue" type="text" maxLength={3}/>
           </label>
         </div>
       </div>

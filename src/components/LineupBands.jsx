@@ -33,7 +33,7 @@ return (
     <section className="flex flex-col items-center space-y-4 mb-10 mt-10">
         <h1 className="text-darkblue text-center font-bold p-10 text-2xl uppercase">Lineup</h1>
         {pyramidLevels.map((level, index) => (
-            <div key={index} className="flex justify-center space-x-4">
+            <div key={index} className="flex justify-center space-x-4" id="lineup">
                 {level.map((band, idx) => (
                     <p key={idx} className="text-lg font-semibold">{band.name}</p>
                 ))}
