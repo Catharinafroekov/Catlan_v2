@@ -10,7 +10,9 @@ const Camping = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
-      const response = await fetch("https://freezing-humble-sauroposeidon.glitch.me/available-spots");
+      const response = await fetch(
+        "https://freezing-humble-sauroposeidon.glitch.me/available-spots"
+      );
       const data = await response.json();
       setBookings(data);
     };
@@ -20,16 +22,14 @@ const Camping = () => {
 
   const addToCart = (booking) => {
     setSelectedBooking(booking);
-    setCartItems((prevItems) => [
-      ...prevItems,
-      { ...booking, type: "camping" },
-    ]);
+    (prevItems) => [...prevItems, { ...booking, type: "camping" }];
   };
+  // har slettet setCartItems før ((prevItems)
 
   return (
     <section className="p-10">
-<div className="grid grid-cols-[repeat(3,minmax(0,0.2fr))]">
-  {bookings.map((booking, index) => (
+      <div className="grid grid-cols-[repeat(3,minmax(0,0.2fr))]">
+        {bookings.map((booking, index) => (
           <CampingCard
             key={index}
             area={booking.area}
