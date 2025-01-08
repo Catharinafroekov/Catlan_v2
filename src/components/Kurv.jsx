@@ -1,8 +1,15 @@
 "use client";
+import { FiMinus } from "react-icons/fi";
+import { FaPlus } from "react-icons/fa6";
 import React from "react";
 import Timer from "@/components/Timer";
 
-const Kurv = ({ cartItems = [], ticketCounts = {} }) => {
+const Kurv = ({
+  addToCart,
+  removeFromCart,
+  cartItems = [],
+  ticketCounts = {},
+}) => {
   const totalPrice = Array.isArray(cartItems)
     ? cartItems.reduce((acc, item) => acc + (item.price || 0), 0)
     : 0;
@@ -15,17 +22,37 @@ const Kurv = ({ cartItems = [], ticketCounts = {} }) => {
       <h3 className="text-xl text-darkblue pb-20">Cart</h3>
       <p className="text-darkblue">Tickets:</p>
 
-      {/* Vis tællerne for hver type */}
       <div>
         {ticketCounts.foo > 0 && (
-          <p className="text-black tracking-wider">
-            FOO-TICKET X {ticketCounts.foo}
-          </p>
+          <div className="flex items-center text-black tracking-wider">
+            <p className="mr-3">FOO-TICKET</p>
+            <FaPlus
+              onClick={() =>
+                addToCart(
+                  { name: "FOO-TICKET", price: 799, type: "foo" },
+                  "foo"
+                )
+              }
+              className="ml-2"
+            />
+            <p className="ml-5 mr-5">{ticketCounts.foo}</p>
+            <FiMinus onClick={() => removeFromCart("foo")} className="ml-2" />
+          </div>
         )}
         {ticketCounts.vip > 0 && (
-          <p className="text-black tracking-wider">
-            VIP-TICKET X {ticketCounts.vip}
-          </p>
+          <div className="flex items-center text-black tracking-wider">
+            <p>VIP-TICKET X {ticketCounts.vip}</p>
+            <FiMinus onClick={() => removeFromCart("vip")} className="ml-2" />
+            <FaPlus
+              onClick={() =>
+                addToCart(
+                  { name: "VIP-TICKET", price: 1299, type: "vip" },
+                  "vip"
+                )
+              }
+              className="ml-2"
+            />
+          </div>
         )}
       </div>
 
