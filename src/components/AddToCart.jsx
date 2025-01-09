@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 
@@ -17,4 +17,4 @@ const AddToCart = ({ area }) => {
   );
 };
 
-export default AddToCart;
+export default AddToCart; */

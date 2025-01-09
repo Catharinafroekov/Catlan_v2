@@ -3,8 +3,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js"; // Importer createClient direkte
 
+// Initialiser Supabase-klienten her
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -19,17 +20,21 @@ const Formel = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    // Indsæt formulardata i Supabase-tabellen
-    const { error } = await supabase.from("catlan").insert([data]);
+    try {
+      // Indsæt formulardata i Supabase-tabellen
+      const { error } = await supabase.from("catlan").insert([data]);
 
-    if (error) {
-      console.error("Supabase Insert Error:", error.message);
-      alert("Kunne ikke indsende formularen. Prøv igen.");
-      return; // Stop yderligere behandling ved fejl
+      if (error) {
+        console.error("Supabase Insert Error:", error.message);
+        alert("Kunne ikke indsende formularen. Prøv igen.");
+      } else {
+        console.log("Formular-data blev indsendt:", data);
+        router.push("/payment"); // Redirect på succes
+      }
+    } catch (err) {
+      console.error("Uventet fejl:", err.message);
+      alert("Der opstod en uventet fejl. Prøv igen.");
     }
-
-    console.log("Formular-data blev indsendt:", data);
-    router.push("/payment"); // Redirect på succes
   };
 
   return (
@@ -63,7 +68,7 @@ const Formel = () => {
         <input
           className="bg-white mb-5 rounded-12 w-300 h-30"
           type="tel"
-          placeholder="12345678"
+          placeholder="+45 12345678"
           {...register("phoneNumber", {
             required: "Phone number is required",
             pattern: { value: /^[0-9]+$/, message: "Invalid phone number" },
@@ -89,7 +94,7 @@ const Formel = () => {
           type="submit"
           className="bg-darkblue text-white mt-5 rounded-12 w-300 h-30"
         >
-          Go To Payment
+          Submit
         </button>
       </form>
     </div>
