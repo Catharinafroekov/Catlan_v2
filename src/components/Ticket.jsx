@@ -23,16 +23,6 @@ const Ticket = () => {
         [type]: prevCounts[type] - 1,
       };
     });
-
-    setCartItems((prevItems) => {
-      const index = prevItems.findIndex((item) => item.type === type);
-      if (index !== -1) {
-        const newItems = [...prevItems];
-        newItems.splice(index, 1);
-        return newItems;
-      }
-      return prevItems;
-    });
   };
 
   return (
