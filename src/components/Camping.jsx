@@ -21,10 +21,9 @@ const Camping = () => {
   }, []);
 
   const addToCart = (booking) => {
-    setSelectedBooking(booking);
-    (prevItems) => [...prevItems, { ...booking, type: "camping" }];
+    setSelectedBooking(booking); // Opdaterer med den valgte booking
   };
-  // har slettet setCartItems før ((prevItems)
+  // har slettet setCartItems og ((prevItems)
 
   return (
     <section className="p-10">

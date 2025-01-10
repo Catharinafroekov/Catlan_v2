@@ -57,7 +57,7 @@ const Formel = () => {
         <input
           className="bg-white mb-5 rounded-12 w-300 h-30"
           type="tel"
-          placeholder="+45 12345678"
+          placeholder="70241207"
           {...register("phoneNumber", {
             required: "Phone number is required",
             pattern: { value: /^[0-9]+$/, message: "Invalid phone number" },
