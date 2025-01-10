@@ -8,13 +8,16 @@ function Reservation() {
 
   const handleReserveSpot = async () => {
     try {
-      const response = await fetch("https://freezing-humble-sauroposeidon.glitch.me/reserve-spot", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ area: "Alfheim", amount: 3 }),
-      });
+      const response = await fetch(
+        "https://freezing-humble-sauroposeidon.glitch.me/reserve-spot",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ area: "Alfheim", amount: 3 }),
+        }
+      );
       const data = await response.json();
       if (data.id) {
         setReservationId(data.id);
@@ -31,8 +34,11 @@ function Reservation() {
 
   return (
     <div>
-      <button onClick={handleReserveSpot} className="p-2 rounded-15 border border-darkblue text-darkblue hover:underline">
-        Reserve tickets
+      <button
+        onClick={handleReserveSpot}
+        className="p-2 rounded-15 border border-darkblue text-darkblue hover:underline"
+      >
+        Go to Payment
       </button>
 
       {/* Navigate to form page with reservationId and expiryTime */}
@@ -46,8 +52,8 @@ function Reservation() {
             },
           }}
         >
-          <button className="p-2 rounded-15 border border-darkblue text-darkblue hover:underline ml-2">
-            Complete your details
+          <button className="p-2 rounded-15 border border-darkblue text-darkblue hover:underline">
+            Are you sure?
           </button>
         </Link>
       )}
