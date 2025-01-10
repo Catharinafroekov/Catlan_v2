@@ -28,7 +28,7 @@ const Camping = () => {
 
   return (
     <section className="p-10">
-      <div className="grid grid-cols-[repeat(3,minmax(0,0.2fr))]">
+      <div className="grid sm:grid-cols-[repeat(2,minmax(0,0.2fr))] md:grid-cols-[repeat(3,minmax(0,0.2fr))]">
         {bookings.map((booking, index) => (
           <CampingCard
             key={index}

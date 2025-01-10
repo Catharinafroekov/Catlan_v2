@@ -1,11 +1,25 @@
+"use client";
+import React, { useState } from "react";
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 
 const Betaling = () => {
+  // State for at styre popup'en
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  // Funktion til at vise popup'en
+  const handlePayment = () => {
+    setIsPopupVisible(true);
+  };
+
+  // Funktion til at lukke popup'en
+  const closePopup = () => {
+    setIsPopupVisible(false);
+  };
+
   return (
     <section className="flex justify-center">
       <div className="bg-white xs:w-450 sm:w-600 h-350 rounded-12 xs:pl-2 sm:pl-20 pt-10 mt-20">
@@ -64,7 +78,30 @@ const Betaling = () => {
             </label>
           </div>
         </div>
+        {/* Knappen til at afslutte betaling */}
+        <button
+          onClick={handlePayment}
+          className="bg-darkblue text-white rounded-12 px-5 py-2 mt-5"
+        >
+          Complete Payment
+        </button>
       </div>
+
+      {/* Popup */}
+      {isPopupVisible && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-10 rounded-12 text-center w-80">
+            <h2 className="text-darkblue text-xl mb-5">Thank You!</h2>
+            <p>Your payment has been processed successfully.</p>
+            <button
+              onClick={closePopup}
+              className="bg-darkblue text-white rounded-12 px-5 py-2 mt-5"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
