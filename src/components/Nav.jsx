@@ -13,7 +13,7 @@ function Navigation() {
         <header>
             <nav className="flex justify-between items-center p-5">
                 {/* Logo */}
-                <Link href="/"><img src="/img/ravn.svg" alt="ravn ikon" className="h-14 w-auto" /></Link>
+                <Link href="/"><img src="/img/logo.svg" alt="logo ikon" className="h-14 w-auto" /></Link>
 
                 <button className="text-black" onClick={toggleMenu}>
     {isMenuOpen ? (

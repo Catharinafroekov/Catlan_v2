@@ -3,7 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js"; // Importer createClient direkte
+import { createClient } from "@supabase/supabase-js";
 
 // Initialiser Supabase-klienten her
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -20,21 +20,10 @@ const Formel = () => {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    try {
-      // Indsæt formulardata i Supabase-tabellen
-      const { error } = await supabase.from("catlan").insert([data]);
+    const { error } = await supabase.from("catlan").insert([data]);
 
-      if (error) {
-        console.error("Supabase Insert Error:", error.message);
-        alert("Kunne ikke indsende formularen. Prøv igen.");
-      } else {
-        console.log("Formular-data blev indsendt:", data);
-        router.push("/payment"); // Redirect på succes
-      }
-    } catch (err) {
-      console.error("Uventet fejl:", err.message);
-      alert("Der opstod en uventet fejl. Prøv igen.");
-    }
+    // Hvis der ikke er fejl, redirect til betalingsside
+    if (!error) router.push("/payment");
   };
 
   return (
