@@ -54,7 +54,7 @@ const BandsLineup = () => {
           name="genre"
           id="genre-select"
           onChange={(e) => setSelectedGenre(e.target.value)}
-          className="bg-lilla rounded-15 p-2 cursor-pointer hover:bg-lilla text-background"
+          className="bg-blue rounded-15 p-2 cursor-pointer text-black"
         >
           <option value="">All bands</option>
           {tags.map((tag, index) => (
@@ -66,13 +66,13 @@ const BandsLineup = () => {
       </div>
 
       {/* Søgefelt til bandnavn */}
-      <div className="mt-5 ml-5 text-white">
+      <div className="mt-5 ml-5 mb-5">
         <input
           type="text"
           placeholder="Search for a band"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="bg-lilla rounded-15 p-2 cursor-pointer hover:bg-lilla text-background text-white"
+          className="bg-blue rounded-15 p-2 cursor-pointer text-black"
         />
       </div>
 
@@ -85,7 +85,7 @@ const BandsLineup = () => {
                 <Image
                   className="m-2 mx-auto"
                   src={band.logo.includes("https") ? band.logo : `/img/${band.logo}`}
-                  width={220}
+                  width={200}
                   height={220}
                   alt={band.name}
                 />

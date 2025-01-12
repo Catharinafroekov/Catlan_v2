@@ -38,7 +38,7 @@ function Reservation() {
         onClick={handleReserveSpot}
         className="p-2 rounded-15 border border-darkblue text-darkblue hover:underline"
       >
-        Go to Payment
+        Reserve tickets
       </button>
 
       {/* Navigate to form page with reservationId and expiryTime */}
@@ -53,7 +53,7 @@ function Reservation() {
           }}
         >
           <button className="p-2 rounded-15 border border-darkblue text-darkblue hover:underline">
-            Are you sure?
+            Fill out information
           </button>
         </Link>
       )}
