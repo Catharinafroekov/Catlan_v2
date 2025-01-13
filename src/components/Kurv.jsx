@@ -41,8 +41,7 @@ const Kurv = ({
         )}
         {ticketCounts.vip > 0 && (
           <div className="flex items-center text-black tracking-wider">
-            <p>VIP-TICKET X {ticketCounts.vip}</p>
-            <FiMinus onClick={() => removeFromCart("vip")} className="ml-2" />
+            <p className="mr-3">VIP-TICKET</p>
             <FaPlus
               onClick={() =>
                 addToCart(
@@ -50,8 +49,10 @@ const Kurv = ({
                   "vip"
                 )
               }
-              className="ml-2"
+              className="ml-4"
             />
+            <p className="ml-5 mr-5">{ticketCounts.vip}</p>
+            <FiMinus onClick={() => removeFromCart("vip")} className="ml-2" />
           </div>
         )}
       </div>

@@ -12,7 +12,7 @@ const Betaling = () => {
 
   // Funktion til at vise popup'en
   const handlePayment = (e) => {
-    e.preventDefault(); // Forhindrer standardformularens opførsel
+    e.preventDefault();
     setIsPopupVisible(true);
   };
 
